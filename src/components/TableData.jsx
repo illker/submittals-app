@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 // import { getData } from "../api/getData";
 // import axios from "axios";
 // import { API_URL } from "../api/constants";
+import TableEntries from "../components/TableEntries";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -39,22 +40,22 @@ function TableData(props) {
   const [apiData, setData] = useState([]);
   const classes = useStyles();
 
-  const getDatax = () => {
-    const endpoint = "/get";
-    axios
-      .get(`${API_URL}${endpoint}`)
-      .then((response) => {
-        const data = response.data.data;
-        setData(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const getDatax = () => {
+  //   const endpoint = "/get";
+  //   axios
+  //     .get(`${API_URL}${endpoint}`)
+  //     .then((response) => {
+  //       const data = response.data.data;
+  //       setData(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <TableContainer component={Paper}>
@@ -72,7 +73,8 @@ function TableData(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {apiData?.map((entries) => {
+          <TableEntries />
+          {/* {apiData?.map((entries) => {
             return (
               <StyledTableRow key={entries.title}>
                 <StyledTableCell component="th">
@@ -93,7 +95,7 @@ function TableData(props) {
                 </StyledTableCell>
               </StyledTableRow>
             );
-          })}
+          })} */}
         </TableBody>
       </Table>
     </TableContainer>
