@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -6,10 +7,13 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+// import { getData } from "../api/getData";
+// import axios from "axios";
+// import { API_URL } from "../api/constants";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: '#0696d7',
+    backgroundColor: "#0696d7",
     color: theme.palette.common.white,
   },
   body: {
@@ -20,22 +24,10 @@ const StyledTableCell = withStyles((theme) => ({
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
+      backgroundColor: "#f0f0f0",
     },
   },
 }))(TableRow);
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
 
 const useStyles = makeStyles({
   table: {
@@ -44,32 +36,64 @@ const useStyles = makeStyles({
 });
 
 function TableData(props) {
+  const [apiData, setData] = useState([]);
   const classes = useStyles();
+
+  const getDatax = () => {
+    const endpoint = "/get";
+    axios
+      .get(`${API_URL}${endpoint}`)
+      .then((response) => {
+        const data = response.data.data;
+        setData(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell>Status</StyledTableCell>
+            <StyledTableCell align="right">#</StyledTableCell>
+            <StyledTableCell align="left">Spec</StyledTableCell>
+            <StyledTableCell align="left">Rev</StyledTableCell>
+            <StyledTableCell align="left">Title</StyledTableCell>
+            <StyledTableCell align="left">Type</StyledTableCell>
+            <StyledTableCell align="left">Priority</StyledTableCell>
+            <StyledTableCell align="left">Package</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-            </StyledTableRow>
-          ))}
+          {apiData?.map((entries) => {
+            return (
+              <StyledTableRow key={entries.title}>
+                <StyledTableCell component="th">
+                  {entries.status}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {entries.number}
+                </StyledTableCell>
+                <StyledTableCell align="left">{entries.spec}</StyledTableCell>
+                <StyledTableCell align="left">{entries.rev}</StyledTableCell>
+                <StyledTableCell align="left">{entries.title}</StyledTableCell>
+                <StyledTableCell align="left">{entries.type}</StyledTableCell>
+                <StyledTableCell align="left">
+                  {entries.priority}
+                </StyledTableCell>
+                <StyledTableCell align="left">
+                  {entries.package}
+                </StyledTableCell>
+              </StyledTableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </TableContainer>

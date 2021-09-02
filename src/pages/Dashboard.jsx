@@ -1,16 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
 import TableData from "../components/TableData";
+import SubmittalsLogo from '../assets/img/submittals-logo.svg'
 
-const Dashboard = (props) => {
+const Dashboard = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <img
+          src={SubmittalsLogo}
+          alt="Submittals logo App"
+          style={{
+            width: "250px",
+            padding: "5px",
+            margin: "15px",
+          }}
+        />
       <TableData />
     </div>
   );
 };
 
-Dashboard.propTypes = {};
 
 export default Dashboard;
