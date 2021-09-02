@@ -11,91 +11,35 @@ import Paper from "@material-ui/core/Paper";
 // import axios from "axios";
 // import { API_URL } from "../api/constants";
 import TableEntries from "../components/TableEntries";
-
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: "#0696d7",
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
-
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: "#f0f0f0",
-    },
-  },
-}))(TableRow);
+import TopBar from "../components/TopBar";
 
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
   },
 });
+const topBar = {
+  "status": 'Status',
+  "number": "#",
+  "spec": "Spec",
+  "rev": "Rev",
+  "title": "Title",
+  "type": "Type",
+  "priority": "Priority",
+  "package": "Package"
+}
 
 function TableData(props) {
-  const [apiData, setData] = useState([]);
   const classes = useStyles();
-
-  // const getDatax = () => {
-  //   const endpoint = "/get";
-  //   axios
-  //     .get(`${API_URL}${endpoint}`)
-  //     .then((response) => {
-  //       const data = response.data.data;
-  //       setData(data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
 
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
-          <TableRow>
-            <StyledTableCell>Status</StyledTableCell>
-            <StyledTableCell align="right">#</StyledTableCell>
-            <StyledTableCell align="left">Spec</StyledTableCell>
-            <StyledTableCell align="left">Rev</StyledTableCell>
-            <StyledTableCell align="left">Title</StyledTableCell>
-            <StyledTableCell align="left">Type</StyledTableCell>
-            <StyledTableCell align="left">Priority</StyledTableCell>
-            <StyledTableCell align="left">Package</StyledTableCell>
-          </TableRow>
+          <TopBar props={topBar} />
         </TableHead>
         <TableBody>
           <TableEntries />
-          {/* {apiData?.map((entries) => {
-            return (
-              <StyledTableRow key={entries.title}>
-                <StyledTableCell component="th">
-                  {entries.status}
-                </StyledTableCell>
-                <StyledTableCell align="right">
-                  {entries.number}
-                </StyledTableCell>
-                <StyledTableCell align="left">{entries.spec}</StyledTableCell>
-                <StyledTableCell align="left">{entries.rev}</StyledTableCell>
-                <StyledTableCell align="left">{entries.title}</StyledTableCell>
-                <StyledTableCell align="left">{entries.type}</StyledTableCell>
-                <StyledTableCell align="left">
-                  {entries.priority}
-                </StyledTableCell>
-                <StyledTableCell align="left">
-                  {entries.package}
-                </StyledTableCell>
-              </StyledTableRow>
-            );
-          })} */}
         </TableBody>
       </Table>
     </TableContainer>
