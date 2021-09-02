@@ -18,13 +18,13 @@ const TopBar = ({props}) => {
     <>
       <TableRow>
         <StyledTableCell>{props.status}</StyledTableCell>
-        <StyledTableCell align="right">#</StyledTableCell>
-        <StyledTableCell align="left">Spec</StyledTableCell>
-        <StyledTableCell align="left">Rev</StyledTableCell>
-        <StyledTableCell align="left">Title</StyledTableCell>
-        <StyledTableCell align="left">Type</StyledTableCell>
-        <StyledTableCell align="left">Priority</StyledTableCell>
-        <StyledTableCell align="left">Package</StyledTableCell>
+        <StyledTableCell align="right">{props.number}</StyledTableCell>
+        <StyledTableCell align="left">{props.spec}</StyledTableCell>
+        <StyledTableCell align="left">{props.rev}</StyledTableCell>
+        <StyledTableCell align="left">{props.title}</StyledTableCell>
+        <StyledTableCell align="left">{props.type}</StyledTableCell>
+        <StyledTableCell align="left">{props.priority}</StyledTableCell>
+        <StyledTableCell align="left">{props.package}</StyledTableCell>
       </TableRow>
     </>
   );

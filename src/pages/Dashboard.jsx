@@ -1,22 +1,15 @@
 import TableData from "../components/TableData";
-import SubmittalsLogo from '../assets/img/submittals-logo.svg'
+import Logo from "../components/Logo";
+import CreateSubmittal from "../components/CreateSubmittal";
 
 const Dashboard = () => {
   return (
     <div>
-      <img
-          src={SubmittalsLogo}
-          alt="Submittals logo App"
-          style={{
-            width: "250px",
-            padding: "5px",
-            margin: "15px",
-          }}
-        />
+      <Logo />
+      <CreateSubmittal />
       <TableData />
     </div>
   );
 };
-
 
 export default Dashboard;
