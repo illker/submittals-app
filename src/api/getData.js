@@ -8,7 +8,6 @@ export const getData = () => {
     .get(`${API_URL}${endpoint}`)
     .then((response) => {
       const data = response.data.data;
-      console.log(data);
       return data;
     })
     .catch((error) => {

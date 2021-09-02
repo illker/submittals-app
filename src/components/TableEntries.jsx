@@ -25,23 +25,39 @@ const StyledTableRow = withStyles(() => ({
 
 const TableEntries = () => {
   const [apiData, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const getData = () => {
+  const getData = async () => {
     const endpoint = "/get";
-    axios
-      .get(`${API_URL}${endpoint}`)
-      .then((response) => {
-        const data = response.data.data;
-        setData(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      const response = await axios.get(`${API_URL}${endpoint}`);
+      setIsLoading(false);
+      setData(response.data.data);
+    } catch (error) {
+      setIsLoading(false);
+      setIsError(true);
+    }
   };
 
   useEffect(() => {
     getData();
   }, []);
+
+  if (isLoading) {
+    return (
+      <StyledTableRow>
+        <StyledTableCell> Loading... ⏳</StyledTableCell>
+      </StyledTableRow>
+    );
+  }
+  if (isError) {
+    return (
+      <StyledTableRow>
+        <StyledTableCell>❌⚠️ Error getting data...</StyledTableCell>
+      </StyledTableRow>
+    );
+  }
 
   return (
     <>
