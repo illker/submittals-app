@@ -1,12 +1,27 @@
-# Getting Started with Create React App
+# Submittals App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the first MVP to a Submittal's management Dashboard APP
 
-## Available Scripts
+<p align="center">
+  <img src="/src/assets/img/cover.png?raw=true" alt="submittals-app"/>
+</p>
+
+## Mockups and WireFraming
+
+Initial Dashboard design
+See Figma file [https://www.figma.com/file/rPnLvUrWfbmVlsHrv5k9ID/submittals?node-id=19%3A609](https://www.figma.com/file/rPnLvUrWfbmVlsHrv5k9ID/submittals?node-id=19%3A609)
+
+<p align="center">
+  <img src="/src/assets/img/dashboard-mockup.png?raw=true" alt="submittals-app"/>
+  <img src="/src/assets/img/dashboard-mockup-form.png?raw=true" alt="submittals-app"/>
+</p>
+
+## Available Scripts to run the APP
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn start` 
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

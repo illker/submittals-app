@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { API_URL } from "../api/constants";
+import axios from "axios";
 
 const StyledButton = withStyles((theme) => ({
   root: {
@@ -14,9 +16,9 @@ const StyledButton = withStyles((theme) => ({
   },
 }))(Button);
 
-
 const SubmittalForm = () => {
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({ status: "Opened" });
+  const [isError, setError] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,8 +30,21 @@ const SubmittalForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    postData();
   };
+
+  const postData = async () => {
+    const endpoint = "/post";
+    try {
+      const post = await axios.post(`${API_URL}${endpoint}`, formValues);
+    } catch (err) {
+      setError(true);
+    }
+  };
+
+  // useEffect(() => {
+  //   postData();
+  // }, []);
 
   return (
     <form onSubmit={handleSubmit}>

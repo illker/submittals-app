@@ -65,13 +65,13 @@ const TableEntries = () => {
         return (
           <StyledTableRow key={entries?.title}>
             <StyledTableCell component="th">{entries?.status}</StyledTableCell>
-            <StyledTableCell align="right">{entries.number}</StyledTableCell>
-            <StyledTableCell align="left">{entries.spec}</StyledTableCell>
-            <StyledTableCell align="left">{entries.rev}</StyledTableCell>
-            <StyledTableCell align="left">{entries.title}</StyledTableCell>
-            <StyledTableCell align="left">{entries.type}</StyledTableCell>
-            <StyledTableCell align="left">{entries.priority}</StyledTableCell>
-            <StyledTableCell align="left">{entries.package}</StyledTableCell>
+            <StyledTableCell align="right">{entries?.number}</StyledTableCell>
+            <StyledTableCell align="left">{entries?.spec}</StyledTableCell>
+            <StyledTableCell align="left">{entries?.rev}</StyledTableCell>
+            <StyledTableCell align="left">{entries?.title}</StyledTableCell>
+            <StyledTableCell align="left">{entries?.type}</StyledTableCell>
+            <StyledTableCell align="left">{entries?.priority}</StyledTableCell>
+            <StyledTableCell align="left">{entries?.package}</StyledTableCell>
           </StyledTableRow>
         );
       })}
