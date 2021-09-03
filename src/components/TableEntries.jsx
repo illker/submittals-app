@@ -25,15 +25,16 @@ const StyledTableRow = withStyles(() => ({
 
 const TableEntries = () => {
   const [apiData, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   const getData = async () => {
-    const endpoint = "/get";
+    const endpoint = "/data";
     try {
       const response = await axios.get(`${API_URL}${endpoint}`);
+      console.table(response.data);
       setIsLoading(false);
-      setData(response.data.data);
+      setData(response.data);
     } catch (error) {
       setIsLoading(false);
       setIsError(true);

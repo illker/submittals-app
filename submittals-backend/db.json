@@ -1,19 +1,43 @@
 {
-  "posts": [
+  "data": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "status": "Open",
+      "number": "812",
+      "spec": "100 attachments",
+      "rev": "0",
+      "title": "Samridhi",
+      "type": "O&M Manuals",
+      "priority": "0",
+      "package": "-",
+      "ballincourt": "Diane Li Allie",
+      "duedate": "05/09/2021",
+      "response": "Approved"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "status": "Closed",
+      "number": "81fdfsdf",
+      "spec": "50 attachments",
+      "rev": "21",
+      "title": "House loft",
+      "type": "O&M Manuals",
+      "priority": "0",
+      "package": "-",
+      "ballincourt": "Joe boston",
+      "duedate": "20/02/2022",
+      "response": "Approved"
+    },
+    {
+      "status": "Closdsdsed",
+      "number": "81fdfsddf",
+      "spec": "50 attachments",
+      "rev": "215",
+      "title": "House dsloft",
+      "type": "O&M Manusdals",
+      "priority": "0",
+      "package": "-",
+      "ballincourt": "Joe boston",
+      "duedate": "20/02/2022",
+      "response": "Approved"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
