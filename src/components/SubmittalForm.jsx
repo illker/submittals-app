@@ -17,11 +17,12 @@ const StyledButton = withStyles((theme) => ({
 }))(Button);
 
 const SubmittalForm = () => {
-  const [formValues, setFormValues] = useState({ status: "Opened" });
+  const [formValues, setFormValues] = useState({});
   const [isError, setError] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
     setFormValues({
       ...formValues,
       [name]: value,
@@ -31,12 +32,13 @@ const SubmittalForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     postData();
+    setError("Succeed 🚀");
   };
 
   const postData = async () => {
-    const endpoint = "/post";
+    const endpoint = "/data";
     try {
-      const post = await axios.post(`${API_URL}${endpoint}`, formValues);
+      await axios.post(`${API_URL}${endpoint}`, formValues);
     } catch (err) {
       setError(true);
     }
@@ -50,16 +52,74 @@ const SubmittalForm = () => {
     <form onSubmit={handleSubmit}>
       <TextField
         label="Status"
-        fullWidth
-        autocomplete="none"
-        value={formValues.name}
+        name="status"
+        defaultValue=""
+        autoComplete="none"
+        value={formValues.status}
         onChange={handleInputChange}
       />
-      <TextField label="Number" fullWidth autocomplete="none" />
-      <TextField label="Spec" fullWidth autocomplete="none" />
-      <TextField label="Rev" fullWidth autocomplete="none" />
-      <TextField label="Title" fullWidth autocomplete="none" />
-      <TextField label="Type" fullWidth autocomplete="none" />
+      <TextField
+        label="Number"
+        name="number"
+        autoComplete="none"
+        value={formValues.number}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Spec"
+        fullWidth
+        name="spec"
+        autoComplete="none"
+        value={formValues.spec}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Rev"
+        name="rev"
+        autoComplete="none"
+        value={formValues.rev}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Title"
+        fullWidth
+        name="title"
+        autoComplete="none"
+        value={formValues.title}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Type"
+        fullWidth
+        name="type"
+        autoComplete="none"
+        value={formValues.type}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Priority"
+        name="priority"
+        autoComplete="none"
+        value={formValues.priority}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Package"
+        name="package"
+        autoComplete="none"
+        value={formValues.package}
+        onChange={handleInputChange}
+      />
+      {isError &&
+        (isError === "Succeed 🚀" ? (
+          <>
+            <p>{isError}</p>
+          </>
+        ) : (
+          <>
+            <p>❌⚠️ Error ❌⚠️</p>
+          </>
+        ))}
       <StyledButton type="submit">Create</StyledButton>
     </form>
   );

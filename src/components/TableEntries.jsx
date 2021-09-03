@@ -32,7 +32,7 @@ const TableEntries = () => {
     const endpoint = "/data";
     try {
       const response = await axios.get(`${API_URL}${endpoint}`);
-      console.table(response.data);
+      console.table(response);
       setIsLoading(false);
       setData(response.data);
     } catch (error) {
@@ -64,7 +64,7 @@ const TableEntries = () => {
     <>
       {apiData?.map((entries) => {
         return (
-          <StyledTableRow key={entries?.title}>
+          <StyledTableRow key={entries?.id}>
             <StyledTableCell component="th">{entries?.status}</StyledTableCell>
             <StyledTableCell align="right">{entries?.number}</StyledTableCell>
             <StyledTableCell align="left">{entries?.spec}</StyledTableCell>
