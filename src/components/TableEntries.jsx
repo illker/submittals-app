@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import axios from "axios";
 import { API_URL } from "../api/constants";
 import UpdateSubmital from "../components/UpdateSubmittal";
+import useGetSubmittal from "../hooks/useGetSubmittal";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -25,27 +24,11 @@ const StyledTableRow = withStyles(() => ({
 }))(TableRow);
 
 const TableEntries = () => {
-  const [apiData, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
 
-  // const getDataAxios = useAxios(get, API_URL)
+  // custom hook useGetSubmittal to fetching data
+  const {isLoading, isError, apiData } = useGetSubmittal(API_URL)
 
-  const getData = async () => {
-    const endpoint = "/data";
-    try {
-      const response = await axios.get(`${API_URL}${endpoint}`);
-      setIsLoading(false);
-      setData(response.data);
-    } catch (error) {
-      setIsLoading(false);
-      setIsError(true);
-    }
-  };
 
-  useEffect(() => {
-    getData();
-  }, []);
 
   if (isLoading) {
     return (

@@ -12,6 +12,7 @@ const useStyles = makeStyles({
     minWidth: 700,
   },
 });
+
 const topBar = {
   status: "Status",
   number: "#",
@@ -21,7 +22,7 @@ const topBar = {
   type: "Type",
   priority: "Priority",
   package: "Package",
-  update: "update",
+  update: "Update",
 };
 
 function TableData(props) {
