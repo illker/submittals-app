@@ -21,6 +21,7 @@ const topBar = {
   type: "Type",
   priority: "Priority",
   package: "Package",
+  update: "update",
 };
 
 function TableData(props) {

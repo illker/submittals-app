@@ -25,6 +25,7 @@ const TopBar = ({props}) => {
         <StyledTableCell align="left">{props.type}</StyledTableCell>
         <StyledTableCell align="left">{props.priority}</StyledTableCell>
         <StyledTableCell align="left">{props.package}</StyledTableCell>
+        <StyledTableCell align="left">{props.update}</StyledTableCell>
       </TableRow>
     </>
   );

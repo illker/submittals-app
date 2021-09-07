@@ -4,6 +4,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import axios from "axios";
 import { API_URL } from "../api/constants";
+import UpdateSubmital from "../components/UpdateSubmittal";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -28,11 +29,12 @@ const TableEntries = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
+  // const getDataAxios = useAxios(get, API_URL)
+
   const getData = async () => {
     const endpoint = "/data";
     try {
       const response = await axios.get(`${API_URL}${endpoint}`);
-      console.table(response);
       setIsLoading(false);
       setData(response.data);
     } catch (error) {
@@ -64,15 +66,17 @@ const TableEntries = () => {
     <>
       {apiData?.map((entries) => {
         return (
-          <StyledTableRow key={entries?.id}>
-            <StyledTableCell component="th">{entries?.status}</StyledTableCell>
-            <StyledTableCell align="right">{entries?.number}</StyledTableCell>
-            <StyledTableCell align="left">{entries?.spec}</StyledTableCell>
-            <StyledTableCell align="left">{entries?.rev}</StyledTableCell>
-            <StyledTableCell align="left">{entries?.title}</StyledTableCell>
-            <StyledTableCell align="left">{entries?.type}</StyledTableCell>
-            <StyledTableCell align="left">{entries?.priority}</StyledTableCell>
-            <StyledTableCell align="left">{entries?.package}</StyledTableCell>
+          <StyledTableRow key={entries.id}>
+            <StyledTableCell component="th">{entries.status}</StyledTableCell>
+            <StyledTableCell align="right">{entries.number}</StyledTableCell>
+            <StyledTableCell align="left">{entries.spec}</StyledTableCell>
+            <StyledTableCell align="left">{entries.rev}</StyledTableCell>
+            <StyledTableCell align="left">{entries.title}</StyledTableCell>
+            <StyledTableCell align="left">{entries.type}</StyledTableCell>
+            <StyledTableCell align="left">{entries.priority}</StyledTableCell>
+            <StyledTableCell align="left">{entries.package}</StyledTableCell>
+
+            {entries.id && <UpdateSubmital value={entries.id} />}
           </StyledTableRow>
         );
       })}

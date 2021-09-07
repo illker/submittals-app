@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -44,9 +44,6 @@ const SubmittalForm = () => {
     }
   };
 
-  // useEffect(() => {
-  //   postData();
-  // }, []);
 
   return (
     <form onSubmit={handleSubmit}>
