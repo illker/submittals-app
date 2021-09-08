@@ -12,20 +12,14 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
-const TopBar = ({props}) => {
-    
+const TopBar = ({ props }) => {
+
   return (
     <>
-      <TableRow>
-        <StyledTableCell>{props.status}</StyledTableCell>
-        <StyledTableCell align="right">{props.number}</StyledTableCell>
-        <StyledTableCell align="left">{props.spec}</StyledTableCell>
-        <StyledTableCell align="left">{props.rev}</StyledTableCell>
-        <StyledTableCell align="left">{props.title}</StyledTableCell>
-        <StyledTableCell align="left">{props.type}</StyledTableCell>
-        <StyledTableCell align="left">{props.priority}</StyledTableCell>
-        <StyledTableCell align="left">{props.package}</StyledTableCell>
-        <StyledTableCell align="left">{props.update}</StyledTableCell>
+      <TableRow> 
+        {props.map((value) => {
+          return(<StyledTableCell key={value}>{value}</StyledTableCell>);
+        })}
       </TableRow>
     </>
   );

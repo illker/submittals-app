@@ -36,7 +36,7 @@ const UpdateSubmittal = ({ id }) => {
   const handleOpen = () => {
     setOpenModal(!openModal);
   };
-  console.log(openModal);
+
 
   const body = (
     <div className={classes.paper}>

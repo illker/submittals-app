@@ -13,18 +13,19 @@ const useStyles = makeStyles({
   },
 });
 
-const topBar = {
-  status: "Status",
-  number: "#",
-  spec: "Spec",
-  rev: "Rev",
-  title: "Title",
-  type: "Type",
-  priority: "Priority",
-  package: "Package",
-  update: "Update",
-};
+const topBar = [
+  "Status",
+  "#",
+  "Spec",
+  "Rev",
+  "Title",
+  "Type",
+  "Priority",
+  "Package",
+  "Update",
+];
 
+console.log(Object.keys(topBar));
 function TableData(props) {
   const classes = useStyles();
 

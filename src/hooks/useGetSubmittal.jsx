@@ -28,8 +28,8 @@ const useGetSubmittal = (url) => {
   useEffect(() => {
     getData();
   }, []);
-  
-  // returning object with
+
+  // returning object with loading, error and data
   return { isLoading, isError, apiData };
 };
 

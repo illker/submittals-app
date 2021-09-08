@@ -29,7 +29,6 @@ const TableEntries = () => {
   const {isLoading, isError, apiData } = useGetSubmittal(API_URL)
 
 
-
   if (isLoading) {
     return (
       <StyledTableRow>
@@ -51,7 +50,7 @@ const TableEntries = () => {
         return (
           <StyledTableRow key={entries.id}>
             <StyledTableCell component="th">{entries.status}</StyledTableCell>
-            <StyledTableCell align="right">{entries.number}</StyledTableCell>
+            <StyledTableCell align="left">{entries.number}</StyledTableCell>
             <StyledTableCell align="left">{entries.spec}</StyledTableCell>
             <StyledTableCell align="left">{entries.rev}</StyledTableCell>
             <StyledTableCell align="left">{entries.title}</StyledTableCell>
@@ -59,7 +58,7 @@ const TableEntries = () => {
             <StyledTableCell align="left">{entries.priority}</StyledTableCell>
             <StyledTableCell align="left">{entries.package}</StyledTableCell>
 
-            {entries.id && <UpdateSubmital value={entries.id} />}
+            {entries?.id &&  <StyledTableCell align="left"><UpdateSubmital value={entries} /></StyledTableCell>}
           </StyledTableRow>
         );
       })}
