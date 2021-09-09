@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import SubmittalForm from "./SubmittalForm";
-import axios from "axios";
 
-const StyledButton = withStyles((theme) => ({
+const StyledButton = withStyles(() => ({
   root: {
     color: "#ffffff",
     backgroundColor: "#0696d7",
@@ -29,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UpdateSubmittal = ({ id }) => {
-  console.log(id);
   const classes = useStyles();
   const [openModal, setOpenModal] = useState(false);
 
@@ -43,7 +41,7 @@ const UpdateSubmittal = ({ id }) => {
       <Modal open={openModal} onClose={handleOpen}>
         <div className={classes.paper}>
           <h2 id="simple-modal-title">Update Item</h2>
-          <p id="simple-modal-description">text</p>
+          <p id="simple-modal-description">Please fill the fields to update</p>
           <SubmittalForm title={"Update"} id={id} />
         </div>
       </Modal>

@@ -25,8 +25,7 @@ const StyledTableRow = withStyles(() => ({
 
 const TableEntries = () => {
   // // custom hook useGetSubmittal to fetching data
-  const {isLoading, isError, apiData } = useGetSubmittal(API_URL)
-
+  const { isLoading, isError, apiData } = useGetSubmittal(API_URL);
 
   if (isLoading) {
     return (
@@ -56,7 +55,6 @@ const TableEntries = () => {
             <StyledTableCell align="left">{entries.type}</StyledTableCell>
             <StyledTableCell align="left">{entries.priority}</StyledTableCell>
             <StyledTableCell align="left">{entries.package}</StyledTableCell>
-            <StyledTableCell align="left">{entries.id}</StyledTableCell>
             {entries?.id && (
               <StyledTableCell align="left">
                 <UpdateSubmital id={entries.id} />
