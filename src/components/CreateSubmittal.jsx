@@ -2,7 +2,8 @@ import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
-import SubmittalsForm from '../components/SubmittalForm'
+import SubmittalsForm from "../components/SubmittalForm";
+
 
 const StyledButton = withStyles((theme) => ({
   root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     width: 400,
     backgroundColor: "white",
-    borderRadius: '30px',
+    borderRadius: "30px",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     top: "15%",
@@ -36,22 +37,16 @@ const CreateSubmittal = () => {
     setOpen(!open);
   };
 
-  const body = (
-    <div  className={classes.paper}>
-      <h2 id="simple-modal-title">Create Item</h2>
-      <p id="simple-modal-description">
-        text
-      </p>
-      <SubmittalsForm/>
-    </div>
-  );
   return (
     <div>
       <StyledButton variant="contained" onClick={handleOpen}>
         + Create Item
       </StyledButton>
       <Modal open={open} onClose={handleOpen}>
-        {body}
+        <div className={classes.paper}>
+          <h2 id="simple-modal-title">Create Item</h2>
+          <SubmittalsForm title={"Create"} />
+        </div>
       </Modal>
     </div>
   );

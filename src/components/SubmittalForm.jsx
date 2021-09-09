@@ -1,11 +1,11 @@
-import { useState} from "react";
+import { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { API_URL } from "../api/constants";
 import axios from "axios";
 
-const StyledButton = withStyles((theme) => ({
+const StyledButton = withStyles(() => ({
   root: {
     color: "#ffffff",
     backgroundColor: "#0696d7",
@@ -16,8 +16,8 @@ const StyledButton = withStyles((theme) => ({
   },
 }))(Button);
 
-const SubmittalForm = () => {
-  const [formValues, setFormValues] = useState({});
+const SubmittalForm = ({ title, id }) => {
+    const [formValues, setFormValues] = useState({});
   const [isError, setError] = useState(false);
 
   const handleInputChange = (e) => {
@@ -31,7 +31,7 @@ const SubmittalForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postData();
+    title === "Create" ? postData() : putData();
     setError("Succeed 🚀");
   };
 
@@ -43,7 +43,19 @@ const SubmittalForm = () => {
       setError(true);
     }
   };
+  console.log(id)
+  console.log(`/data/${id}`)
 
+  const putData = async () => {
+    const endpoint = `/data/${id}`;
+
+    console.log(formValues);
+    try {
+      await axios.put(`${API_URL}${endpoint}`, formValues);
+    } catch (err) {
+      setError(true);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -54,6 +66,7 @@ const SubmittalForm = () => {
         autoComplete="none"
         value={formValues.status}
         onChange={handleInputChange}
+        className="inputField"
       />
       <TextField
         label="Number"
@@ -117,7 +130,7 @@ const SubmittalForm = () => {
             <p>❌⚠️ Error ❌⚠️</p>
           </>
         ))}
-      <StyledButton type="submit">Create</StyledButton>
+      <StyledButton type="submit">+ {title}</StyledButton>
     </form>
   );
 };

@@ -25,7 +25,7 @@ const topBar = [
   "Update",
 ];
 
-console.log(Object.keys(topBar));
+
 function TableData(props) {
   const classes = useStyles();
 
