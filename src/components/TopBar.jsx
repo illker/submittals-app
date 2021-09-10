@@ -16,8 +16,8 @@ const TopBar = ({ props }) => {
 
   return (
     <>
-      <TableRow> 
-        {props.map((value) => {
+      <TableRow data-testid="top-bar"> 
+        {props?.map((value) => {
           return(<StyledTableCell key={value}>{value}</StyledTableCell>);
         })}
       </TableRow>

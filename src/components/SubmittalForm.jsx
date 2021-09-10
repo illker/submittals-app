@@ -54,7 +54,7 @@ const SubmittalForm = ({ title, id }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} data-testid="submittal-form">
       <TextField
         label="Status"
         name="status"

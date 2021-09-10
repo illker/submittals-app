@@ -46,7 +46,7 @@ const TableEntries = () => {
     <>
       {apiData?.map((entries) => {
         return (
-          <StyledTableRow key={entries.id}>
+          <StyledTableRow key={entries.id} data-testid="table-entries">
             <StyledTableCell component="th">{entries.status}</StyledTableCell>
             <StyledTableCell align="left">{entries.number}</StyledTableCell>
             <StyledTableCell align="left">{entries.spec}</StyledTableCell>

@@ -30,7 +30,7 @@ function TableData(props) {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} data-testid="table-data">
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TopBar props={topBar} />

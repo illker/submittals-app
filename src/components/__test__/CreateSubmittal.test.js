@@ -7,14 +7,14 @@ afterEach(() => {
 
 test("should render component CreateSubmittal", () => {
   render(<CreateSubmittal />);
-  const logoElement = screen.getByTestId("create-submittal");
-  expect(logoElement).toBeInTheDocument();
+  const Element = screen.getByTestId("create-submittal");
+  expect(Element).toBeInTheDocument();
 });
 
 test("should have the button tag", () => {
   render(<CreateSubmittal />);
-  const logoElement = screen.getAllByRole("button");
-  expect(logoElement).toBeTruthy();
+  const Element = screen.getAllByRole("button");
+  expect(Element).toBeTruthy();
 });
 
 cleanup()
