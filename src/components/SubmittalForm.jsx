@@ -31,7 +31,7 @@ const SubmittalForm = ({ title, id }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    title === "Create" ? postData() : putData();
+    title === "Create" ? postData() : pacthData();
     setError("Succeed 🚀");
   };
 
@@ -43,10 +43,8 @@ const SubmittalForm = ({ title, id }) => {
       setError(true);
     }
   };
-  console.log(id)
-  console.log(`/data/${id}`)
 
-  const putData = async () => {
+  const pacthData = async () => {
     const endpoint = `/data/${id}`;
     try {
       await axios.patch(`${API_URL}${endpoint}`, formValues);
