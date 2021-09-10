@@ -37,7 +37,7 @@ const UpdateSubmittal = ({ id }) => {
 
   return (
     <>
-      <StyledButton onClick={handleOpen}>Update</StyledButton>
+      <StyledButton onClick={handleOpen} data-testid="update-submittal">Update</StyledButton>
       <Modal open={openModal} onClose={handleOpen}>
         <div className={classes.paper}>
           <h2 id="simple-modal-title">Update Item</h2>
