@@ -2,7 +2,7 @@
   "data": [
     {
       "id": "1",
-      "status": "Open",
+      "status": "closed",
       "number": "812",
       "spec": "100 attachments",
       "rev": "0",
@@ -13,12 +13,6 @@
       "ballincourt": "Diane Li Allie",
       "duedate": "05/09/2021",
       "response": "Approved"
-    },
-    {
-      "status": "closed",
-      "number": "5685656",
-      "title": "New titlexxxxxx",
-      "id": "2"
     },
     {
       "id": "3",
@@ -69,34 +63,6 @@
       "priority": "3",
       "package": "c",
       "id": "9xJ-80a"
-    },
-    {
-      "status": "Closed",
-      "number": "818",
-      "spec": "0 attachments",
-      "rev": "5",
-      "title": "mall layout",
-      "type": "autocad",
-      "priority": "0",
-      "package": "-",
-      "ballincourt": "David",
-      "duedate": "25/12/2021",
-      "response": "Approved",
-      "id": "1EzeIra"
-    },
-    {
-      "status": "Open",
-      "number": "81845",
-      "spec": "0 attachments",
-      "rev": "5",
-      "title": "mall layout",
-      "type": "autocad",
-      "priority": "0",
-      "package": "-",
-      "ballincourt": "David Alzate",
-      "duedate": "25/12/2021",
-      "response": "Approved",
-      "id": "6Dk_7yE"
     }
   ]
 }

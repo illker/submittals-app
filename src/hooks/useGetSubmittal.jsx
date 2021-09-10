@@ -12,22 +12,21 @@ const useGetSubmittal = (url) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  // async function to get data
-  const getData = async () => {
-    const endpoint = "/data";
-    try {
-      const response = await axios.get(`${url}${endpoint}`);
-      setIsLoading(false);
-      setData(response.data);
-    } catch (error) {
-      setIsLoading(false);
-      setIsError(true);
-    }
-  };
-
   useEffect(() => {
+    // async function to get data
+    const getData = async () => {
+      const endpoint = "/data";
+      try {
+        const response = await axios.get(`${url}${endpoint}`);
+        setIsLoading(false);
+        setData(response.data);
+      } catch (error) {
+        setIsLoading(false);
+        setIsError(true);
+      }
+    };
     getData();
-  }, []);
+  }, [url]);
 
   // returning object with loading, error and data
   return { isLoading, isError, apiData };

@@ -48,10 +48,8 @@ const SubmittalForm = ({ title, id }) => {
 
   const putData = async () => {
     const endpoint = `/data/${id}`;
-
-    console.log(formValues);
     try {
-      await axios.put(`${API_URL}${endpoint}`, formValues);
+      await axios.patch(`${API_URL}${endpoint}`, formValues);
     } catch (err) {
       setError(true);
     }
