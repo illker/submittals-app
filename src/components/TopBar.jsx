@@ -13,15 +13,12 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 const TopBar = ({ props }) => {
-
   return (
-    <>
-      <TableRow data-testid="top-bar"> 
-        {props?.map((value) => {
-          return(<StyledTableCell key={value}>{value}</StyledTableCell>);
-        })}
-      </TableRow>
-    </>
+    <TableRow data-testid="top-bar">
+      {props?.map((value) => {
+        return <StyledTableCell key={value}>{value}</StyledTableCell>;
+      })}
+    </TableRow>
   );
 };
 
