@@ -6,6 +6,7 @@ const Logo = () => {
     <img
       src={SubmittalsLogo}
       alt="Submittals logo App"
+      data-testid="logo"
       style={{
         width: "250px",
         padding: "5px",

@@ -39,7 +39,7 @@ const CreateSubmittal = () => {
 
   return (
     <div>
-      <StyledButton variant="contained" onClick={handleOpen}>
+      <StyledButton variant="contained" onClick={handleOpen} data-testid="create-submittal">
         + Create Item
       </StyledButton>
       <Modal open={open} onClose={handleOpen}>
