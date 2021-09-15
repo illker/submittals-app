@@ -1,27 +1,12 @@
-# Submittals App
+# Getting Started with Create React App
 
-This is the first MVP to a Submittal's management Dashboard APP
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<p align="center">
-  <img src="/src/assets/img/cover.png?raw=true" alt="submittals-app"/>
-</p>
-
-## Mockups and WireFraming
-
-Initial Dashboard design
-See Figma file [https://www.figma.com/file/rPnLvUrWfbmVlsHrv5k9ID/submittals?node-id=19%3A609](https://www.figma.com/file/rPnLvUrWfbmVlsHrv5k9ID/submittals?node-id=19%3A609)
-
-<p align="center">
-  <img src="/src/assets/img/dashboard-mockup.png?raw=true" alt="submittals-app"/>
-  <img src="/src/assets/img/dashboard-mockup-form.png?raw=true" alt="submittals-app"/>
-</p>
-
-## Available Scripts to run the APP
+## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start` 
-### `npm run start`
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -59,27 +44,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

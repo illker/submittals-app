@@ -1,7 +1,6 @@
-import React from "react";
 import SubmittalsLogo from "../assets/img/submittals-logo.svg";
 
-const Logo = () => {
+const logo: React.FC = () => {
   return (
     <img
       src={SubmittalsLogo}
@@ -16,4 +15,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default logo;
