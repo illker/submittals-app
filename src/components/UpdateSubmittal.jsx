@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import SubmittalForm from "./SubmittalForm";
+import PropTypes from "prop-types";
 
 const StyledButton = withStyles(() => ({
   root: {
@@ -37,7 +38,9 @@ const UpdateSubmittal = ({ id }) => {
 
   return (
     <>
-      <StyledButton onClick={handleOpen} data-testid="update-submittal">Update</StyledButton>
+      <StyledButton onClick={handleOpen} data-testid="update-submittal">
+        Update
+      </StyledButton>
       <Modal open={openModal} onClose={handleOpen}>
         <div className={classes.paper}>
           <h2 id="simple-modal-title">Update Item</h2>
@@ -47,6 +50,10 @@ const UpdateSubmittal = ({ id }) => {
       </Modal>
     </>
   );
+};
+
+UpdateSubmittal.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default UpdateSubmittal;

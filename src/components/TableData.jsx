@@ -26,14 +26,14 @@ const topBar = [
 ];
 
 
-function TableData(props) {
+function TableData() {
   const classes = useStyles();
 
   return (
     <TableContainer component={Paper} data-testid="table-data">
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
-          <TopBar props={topBar} />
+          <TopBar topBar={topBar} />
         </TableHead>
         <TableBody>
           <TableEntries />
