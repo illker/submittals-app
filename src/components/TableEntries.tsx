@@ -23,7 +23,7 @@ const StyledTableRow = withStyles(() => ({
   },
 }))(TableRow);
 
-const TableEntries = () => {
+const TableEntries: React.FC = () => {
   // // custom hook useGetSubmittal to fetching data
   const { isLoading, isError, apiData } = useGetSubmittal(API_URL);
 
@@ -44,7 +44,7 @@ const TableEntries = () => {
 
   return (
     <>
-      {apiData?.map((entries) => {
+      {apiData?.map((entries: any) => {
         return (
           <StyledTableRow key={entries.id} data-testid="table-entries">
             <StyledTableCell component="th">{entries.status}</StyledTableCell>
