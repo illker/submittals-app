@@ -4,8 +4,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import SubmittalsForm from "../components/SubmittalForm";
 
-
-const StyledButton = withStyles((theme) => ({
+const StyledButton = withStyles(() => ({
   root: {
     color: "#ffffff",
     backgroundColor: "#0696d7",
@@ -39,7 +38,11 @@ const CreateSubmittal = () => {
 
   return (
     <div>
-      <StyledButton variant="contained" onClick={handleOpen} data-testid="create-submittal">
+      <StyledButton
+        variant="contained"
+        onClick={handleOpen}
+        data-testid="create-submittal"
+      >
         + Create Item
       </StyledButton>
       <Modal open={open} onClose={handleOpen}>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import PropTypes from 'prop-types'
 
 /*
  Custom hook to get data from backend
@@ -31,5 +32,9 @@ const useGetSubmittal = (url) => {
   // returning object with loading, error and data
   return { isLoading, isError, apiData };
 };
+
+useGetSubmittal.propTypes = {
+  url: PropTypes.string.isRequired,
+}
 
 export default useGetSubmittal;

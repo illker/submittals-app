@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { API_URL } from "../api/constants";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 const StyledButton = withStyles(() => ({
   root: {
@@ -17,7 +18,7 @@ const StyledButton = withStyles(() => ({
 }))(Button);
 
 const SubmittalForm = ({ title, id }) => {
-    const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({});
   const [isError, setError] = useState(false);
 
   const handleInputChange = (e) => {
@@ -129,6 +130,11 @@ const SubmittalForm = ({ title, id }) => {
       <StyledButton type="submit">+ {title}</StyledButton>
     </form>
   );
+};
+
+SubmittalForm.propTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string,
 };
 
 export default SubmittalForm;

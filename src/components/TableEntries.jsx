@@ -29,14 +29,14 @@ const TableEntries = () => {
 
   if (isLoading) {
     return (
-      <StyledTableRow>
+      <StyledTableRow data-testid="table-entries">
         <StyledTableCell> Loading... ⏳</StyledTableCell>
       </StyledTableRow>
     );
   }
   if (isError) {
     return (
-      <StyledTableRow>
+      <StyledTableRow data-testid="table-entries">
         <StyledTableCell>❌⚠️ Error getting data...</StyledTableCell>
       </StyledTableRow>
     );
