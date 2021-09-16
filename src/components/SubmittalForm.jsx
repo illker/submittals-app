@@ -1,23 +1,20 @@
 import { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 import { API_URL } from "../api/constants";
 import axios from "axios";
+import "../assets/css/Style.css";
 
-const StyledButton = withStyles(() => ({
-  root: {
-    color: "#ffffff",
-    backgroundColor: "#0696d7",
-    "&:hover": {
-      backgroundColor: "#faa21b",
-    },
-    margin: "20px",
-  },
-}))(Button);
+
+/**
+ * Submittal Form Component to grab user input
+ * @param {String} title - "Create" or "Update" value for Title props from CreateSubmittal and UpdateSubmittal
+ * @param {String} id - id from submittal to update
+ */
 
 const SubmittalForm = ({ title, id }) => {
-    const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({});
   const [isError, setError] = useState(false);
 
   const handleInputChange = (e) => {
@@ -32,7 +29,7 @@ const SubmittalForm = ({ title, id }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     title === "Create" ? postData() : pacthData();
-    setError("Succeed 🚀");
+    setError(false);
   };
 
   const postData = async () => {
@@ -54,7 +51,15 @@ const SubmittalForm = ({ title, id }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} data-testid="submittal-form">
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      data-testid="submittal-form"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <TextField
         label="Status"
         name="status"
@@ -62,7 +67,7 @@ const SubmittalForm = ({ title, id }) => {
         autoComplete="none"
         value={formValues.status}
         onChange={handleInputChange}
-        className="inputField"
+        style={{ marginTop: 11 }}
       />
       <TextField
         label="Number"
@@ -70,6 +75,7 @@ const SubmittalForm = ({ title, id }) => {
         autoComplete="none"
         value={formValues.number}
         onChange={handleInputChange}
+        style={{ marginTop: 11 }}
       />
       <TextField
         label="Spec"
@@ -78,6 +84,7 @@ const SubmittalForm = ({ title, id }) => {
         autoComplete="none"
         value={formValues.spec}
         onChange={handleInputChange}
+        style={{ marginTop: 11 }}
       />
       <TextField
         label="Rev"
@@ -85,6 +92,7 @@ const SubmittalForm = ({ title, id }) => {
         autoComplete="none"
         value={formValues.rev}
         onChange={handleInputChange}
+        style={{ marginTop: 11 }}
       />
       <TextField
         label="Title"
@@ -93,6 +101,7 @@ const SubmittalForm = ({ title, id }) => {
         autoComplete="none"
         value={formValues.title}
         onChange={handleInputChange}
+        style={{ marginTop: 11 }}
       />
       <TextField
         label="Type"
@@ -101,6 +110,7 @@ const SubmittalForm = ({ title, id }) => {
         autoComplete="none"
         value={formValues.type}
         onChange={handleInputChange}
+        style={{ marginTop: 11 }}
       />
       <TextField
         label="Priority"
@@ -108,6 +118,7 @@ const SubmittalForm = ({ title, id }) => {
         autoComplete="none"
         value={formValues.priority}
         onChange={handleInputChange}
+        style={{ marginTop: 11 }}
       />
       <TextField
         label="Package"
@@ -115,19 +126,20 @@ const SubmittalForm = ({ title, id }) => {
         autoComplete="none"
         value={formValues.package}
         onChange={handleInputChange}
+        style={{ marginTop: 11 }}
       />
       {isError &&
-        (isError === "Succeed 🚀" ? (
+        (isError ? (
           <>
-            <p>{isError}</p>
+            <p>Succeed 🚀</p>
           </>
         ) : (
           <>
             <p>❌⚠️ Error ❌⚠️</p>
           </>
         ))}
-      <StyledButton type="submit">+ {title}</StyledButton>
-    </form>
+      <Button variant="contained" type="submit" style={{ marginTop: 11 }}>+ {title}</Button>
+    </Box>
   );
 };
 
